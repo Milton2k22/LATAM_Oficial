@@ -99,7 +99,7 @@ install_inicial() {
   os_system
   repo "${vercion}"
   msgi -bar2
-  echo -e " \e[5m\033[1;100m   =====>> ►►  🖥  SCRIPT | LATAM  🖥  ◄◄ <<=====   \033[1;37m"
+  echo -e " \e[5m\033[1;100m   =====>> ►►  🖥  SCRIPT - RABBIT BO 🖥  ◄◄ <<=====   \033[1;37m"
   msgi -bar2
   msgi -ama "   PREPARANDO INSTALACION | VERSION: $vesaoSCT"
   msgi -bar2
@@ -138,7 +138,7 @@ password required pam_permit.so' >/etc/pam.d/common-password && chmod +x /etc/pa
   msgi -bar2
   echo -e "\033[1;93m\a\a\a      SE PROCEDERA A INSTALAR LAS ACTULIZACIONES\n PERTINENTES DEL SISTEMA, ESTE PROCESO PUEDE TARDAR\n VARIOS MINUTOS Y PUEDE PEDIR ALGUNAS CONFIRMACIONES \033[0;37m"
   msgi -bar
-  read -t 120 -n 1 -rsp $'\033[1;97m           Preciona Enter Para continuar\n'
+  read -t 120 -n 1 -rsp $'\033[1;97m           Presiona Enter Para continuar\n'
   clear && clear
   apt update
   apt upgrade -y
@@ -183,9 +183,9 @@ install_paquetes() {
   clear && clear
   #------- BARRA DE ESPERA
   msgi -bar2
-  echo -e " \e[5m\033[1;100m   =====>> ►►  🖥  SCRIPT | LATAM  🖥  ◄◄ <<=====   \033[1;37m"
+  echo -e " \e[5m\033[1;100m   =====>> ►►  🐰  RABBIT - BO 🐰  ◄◄ <<=====   \033[1;37m"
   msgi -bar
-  echo -e "  \033[1;41m    -- INSTALACION DE PAQUETES PARA LATAM --   \e[49m"
+  echo -e "  \033[1;41m    -- INSTALACION DE PAQUETES RABBIT - BO --   \e[49m"
   msgi -bar
   dependencias
   sed -i "s;Listen 80;Listen 81;g" /etc/apache2/ports.conf >/dev/null 2>&1
@@ -200,7 +200,7 @@ install_paquetes() {
   echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
   echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
   msgi -bar2
-  read -t 30 -n 1 -rsp $'\033[1;97m           Preciona Enter Para continuar\n'
+  read -t 30 -n 1 -rsp $'\033[1;97m           Presiona Enter Para continuar\n'
 }
 
 #SELECTOR DE INSTALACION
@@ -252,8 +252,8 @@ Install_key() {
     msgi -bar2
     echo -e "\033[1;32m————————————————————————————————————————————————————"
     figlet -w 85 -f smslant "         SCRIPT
-         LATAM  " | lolcat
-    msgi -ama "          [ ----- \033[1;97m 🐲 By @Kalix1 🐲\033[1;33m ----- ]"
+         RABBIT - BO  " | lolcat
+    msgi -ama "          [ ----- \033[1;97m 🐰 By @DealerServices235 🐰\033[1;33m ----- ]"
     echo -e "\033[1;32m————————————————————————————————————————————————————"
     pv="$(echo es)"
     [[ ${#id} -gt 2 ]] && id="es" || id="$pv"
@@ -291,7 +291,12 @@ Install_key() {
     SPR >/dev/null 2>&1
     timeespera="1"
     times="10"
-    if [ "$timeespera" = "1" ]; then
+    [[ -e /etc/SCRIPT-LATAM/message.txt ]] && {
+cat << eof > /etc/SCRIPT-LATAM/message.txt
+$(echo '@Dealer_Gen_Bot')
+eof
+} 
+if [ "$timeespera" = "1" ]; then
       echo -e "\033[1;97m         ❗️ REGISTRANDO IP y KEY EN LA BASE ❗️            "
       msgi -bar2
       while [ $times -gt 0 ]; do
@@ -367,9 +372,9 @@ ofus () {
       [[ ${#1} -gt 2 ]] && fun_idi || id="$1"
     }
     echo -e "\033[1;31m               ¡# ERROR INESPERADO #¡\n          ESTA KEY YA FUE USADA O EXPIRO "
-    echo -e "\033[0;93m    -SI EL ERROR PERCISTE REVISAR PUERTO 81 TCP -"
+    echo -e "\033[0;93m    -SI EL ERROR PERSISTE REVISAR PUERTO 81 TCP -"
     msgi -bar2
-    echo -ne "\033[1;97m DESEAS REINTENTAR CON OTRA KEY  \033[1;31m[\033[1;93m S \033[1;31m/\033[1;93m N \033[1;31m]\033[1;97m: \033[1;93m" && read incertar_key
+    echo -ne "\033[1;97m ¿DESEAS REINTENTAR CON OTRA KEY?  \033[1;31m[\033[1;93m S \033[1;31m/\033[1;93m N \033[1;31m]\033[1;97m: \033[1;93m" && read incertar_key
     service apache2 restart >/dev/null 2>&1
     [[ "$incertar_key" = "s" || "$incertar_key" = "S" ]] && incertar_key
     clear && clear
