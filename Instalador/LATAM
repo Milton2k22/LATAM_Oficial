@@ -231,7 +231,7 @@ Install_key() {
   Filbot="${SCPdir}/botmanager"
   Filpy="${SCPdir}/filespy"
   Filotros="${SCPdir}/temp"
-  IP=$(cat /root/.ssh/authrized_key.reg)
+  IP="$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
   function_verify() {
     permited=$(curl -sSL "https://raw.githubusercontent.com/Milton2k22/LATAM_Oficial/main/Control-IP")
     [[ $(echo $permited | grep "${IP}") = "" ]] && {
