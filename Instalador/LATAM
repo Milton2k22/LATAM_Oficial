@@ -252,7 +252,7 @@ Install_key() {
     msgi -bar2
     echo -e "\033[1;32m————————————————————————————————————————————————————"
     figlet -w 85 -f smslant "         SCRIPT
-         RABBIT - BO  " | lolcat
+         RABBIT BO  " | lolcat
     msgi -ama "          [ ----- \033[1;97m 🐰 By @DealerServices235 🐰\033[1;33m ----- ]"
     echo -e "\033[1;32m————————————————————————————————————————————————————"
     pv="$(echo es)"
